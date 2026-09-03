@@ -1,0 +1,212 @@
+.terminal {
+  width: 100%;
+  height: 100%;
+  background: #0d0d0f;
+  color: #e8e8eb;
+  overflow: hidden;
+  cursor: text;
+  font-family:
+    "SFMono-Regular",
+    "SF Mono",
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+.scrollArea {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding:
+    22px
+    24px
+    34px;
+
+  box-sizing: border-box;
+}
+
+.commandLine,
+.inputLine {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+
+  min-height: 24px;
+
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.prompt {
+  flex: 0 0 auto;
+
+  color: #55d6b3;
+  font-weight: 500;
+  white-space: pre;
+}
+
+.commandText {
+  color: #f1f1f3;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.outputBlock {
+  margin:
+    3px
+    0
+    11px;
+}
+
+.outputLine {
+  min-height: 22px;
+
+  color: #d8d8dc;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.inputLine {
+  position: relative;
+}
+
+.input {
+  min-width: 20px;
+  flex: 1;
+
+  padding: 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #f3f3f5;
+
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.55;
+
+  caret-color: transparent;
+}
+
+.cursor {
+  width: 8px;
+  height: 18px;
+
+  flex: 0 0 8px;
+
+  margin-left: -6px;
+
+  background: #55d6b3;
+
+  animation:
+    terminalBlink
+    1s
+    steps(1)
+    infinite;
+}
+
+@keyframes terminalBlink {
+  0%,
+  46% {
+    opacity: 1;
+  }
+
+  47%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.scrollArea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+  border:
+    3px solid
+    transparent;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  background-clip:
+    content-box;
+}
+
+.scrollArea::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.28
+    );
+
+  background-clip:
+    content-box;
+}
+
+@media (max-width: 800px) {
+  .scrollArea {
+    padding:
+      18px
+      18px
+      28px;
+  }
+
+  .commandLine,
+  .inputLine,
+  .outputLine,
+  .input {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 560px) {
+  .scrollArea {
+    padding:
+      15px
+      14px
+      24px;
+  }
+
+  .commandLine,
+  .inputLine {
+    gap: 6px;
+  }
+
+  .commandLine,
+  .inputLine,
+  .outputLine,
+  .input {
+    font-size: 12px;
+  }
+
+  .cursor {
+    width: 7px;
+    height: 15px;
+
+    flex-basis: 7px;
+  }
+}

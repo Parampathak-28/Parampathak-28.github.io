@@ -1,0 +1,1043 @@
+/* =========================================================
+   CLOCK PANEL
+========================================================= */
+
+:global(.clock) {
+  cursor: pointer;
+}
+
+.clockPanel {
+  position: fixed;
+
+  width: 310px;
+
+  padding: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 18px;
+
+  background: rgba(42, 42, 47, 0.82);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(150%);
+
+  backdrop-filter:
+    blur(30px)
+    saturate(150%);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+
+  color: white;
+
+  z-index: 9999999;
+}
+
+.clockDate {
+  padding: 3px 7px 12px;
+
+  font-size: 24px;
+  font-weight: 650;
+
+  line-height: 1.2;
+}
+
+.clockSeparator {
+  height: 1px;
+
+  margin-bottom: 7px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+.clockRow {
+  width: 100%;
+  min-height: 54px;
+
+  display: grid;
+
+  grid-template-columns:
+    28px
+    minmax(0, 1fr)
+    18px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 8px 9px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: white;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.clockRow:hover {
+  background:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+}
+
+.clockRow > div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.clockRow strong {
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.clockRow span {
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 11px;
+}
+
+.clockRow:hover span {
+  color:
+    rgba(255, 255, 255, 0.9);
+}
+
+.rowChevron {
+  font-size: 20px !important;
+}
+
+/* =========================================================
+   SHARED WINDOW
+========================================================= */
+
+.weatherWindow,
+.readmeWindow {
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 28px 80px
+    rgba(0, 0, 0, 0.48);
+}
+
+.trafficLights {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.trafficLight {
+  width: 14px;
+  height: 14px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f57;
+  cursor: pointer;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+/* =========================================================
+   WEATHER
+========================================================= */
+
+.weatherShell {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    330px
+    minmax(0, 1fr);
+
+  overflow: hidden;
+
+  background: #171719;
+
+  color: white;
+}
+
+.weatherSidebar {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding:
+    0
+    15px
+    15px;
+
+  overflow: hidden;
+
+  background: #19191c;
+}
+
+.weatherTitleBar {
+  height: 57px;
+
+  flex: 0 0 57px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: grab;
+}
+
+.weatherTitleBar:active {
+  cursor: grabbing;
+}
+
+.weatherSearch {
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    0
+    12px;
+
+  margin-bottom: 12px;
+
+  border-radius: 9px;
+
+  background: #303034;
+
+  color: #949499;
+}
+
+.weatherSearch input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.weatherSearch input::placeholder {
+  color: #8d8d92;
+}
+
+.cityList {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  overflow-y: auto;
+}
+
+.cityCard {
+  position: relative;
+
+  min-height: 103px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  padding:
+    13px
+    15px;
+
+  border:
+    2px solid
+    transparent;
+
+  border-radius: 17px;
+
+  color: white;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.city_sand {
+  background:
+    linear-gradient(
+      145deg,
+      #9c8c69,
+      #8d7d5f
+    );
+}
+
+.city_blue {
+  background:
+    linear-gradient(
+      145deg,
+      #337ddc,
+      #5e99dd
+    );
+}
+
+.city_slate {
+  background:
+    linear-gradient(
+      145deg,
+      #50647d,
+      #718196
+    );
+}
+
+.city_warm {
+  background:
+    linear-gradient(
+      145deg,
+      #9f745b,
+      #7c655c
+    );
+}
+
+.citySelected {
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.85
+    );
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    1px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+.cityCard strong {
+  display: block;
+
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.cityCard span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  opacity: 0.82;
+}
+
+.cityCard p {
+  position: absolute;
+
+  left: 15px;
+  bottom: 10px;
+
+  margin: 0;
+
+  font-size: 11px;
+}
+
+.cityTemperature {
+  font-size: 31px;
+  font-weight: 300;
+}
+
+.cityRange {
+  position: absolute;
+
+  right: 14px;
+  bottom: 10px;
+
+  font-size: 10px;
+
+  opacity: 0.85;
+}
+
+.weatherContent {
+  position: relative;
+
+  min-width: 0;
+
+  padding:
+    53px
+    31px
+    45px;
+
+  overflow-y: auto;
+
+  transition:
+    background
+    200ms ease;
+}
+
+.weather_sand {
+  background:
+    linear-gradient(
+      180deg,
+      #95866b,
+      #aa9875
+    );
+}
+
+.weather_blue {
+  background:
+    linear-gradient(
+      180deg,
+      #4d8dd8,
+      #729fd0
+    );
+}
+
+.weather_slate {
+  background:
+    linear-gradient(
+      180deg,
+      #596b82,
+      #79899c
+    );
+}
+
+.weather_warm {
+  background:
+    linear-gradient(
+      180deg,
+      #9e765f,
+      #aa8670
+    );
+}
+
+.mobileClose {
+  display: none;
+}
+
+.weatherHero {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  margin-bottom: 31px;
+
+  text-align: center;
+}
+
+.weatherHero h1 {
+  margin: 0;
+
+  font-size: 23px;
+  font-weight: 550;
+}
+
+.heroTemperature {
+  margin:
+    4px
+    0
+    2px;
+
+  font-size: 91px;
+  font-weight: 200;
+
+  line-height: 1;
+}
+
+.heroCondition {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.heroRange {
+  margin-top: 5px;
+
+  font-size: 14px;
+}
+
+.weatherCard {
+  margin-bottom: 17px;
+
+  padding:
+    18px
+    21px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius: 16px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+
+  -webkit-backdrop-filter:
+    blur(20px);
+
+  backdrop-filter:
+    blur(20px);
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.95
+    );
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.weatherCard h3 {
+  margin:
+    0
+    0
+    17px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  opacity: 0.82;
+}
+
+.hourly {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      7,
+      minmax(
+        65px,
+        1fr
+      )
+    );
+
+  gap: 7px;
+
+  overflow-x: auto;
+}
+
+.hour {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+
+  white-space: nowrap;
+}
+
+.hour span {
+  font-size: 11px;
+}
+
+.hour strong {
+  font-size: 16px;
+  font-weight: 520;
+}
+
+.dailyForecast {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecastRow {
+  min-height: 47px;
+
+  display: grid;
+
+  grid-template-columns:
+    68px
+    34px
+    42px
+    minmax(
+      80px,
+      1fr
+    )
+    42px;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+}
+
+.forecastRow:last-child {
+  border-bottom: 0;
+}
+
+.forecastRow strong {
+  font-size: 13px;
+}
+
+.forecastRow > span {
+  font-size: 12px;
+  text-align: center;
+}
+
+.temperatureBar {
+  height: 6px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.24
+    );
+}
+
+.temperatureBar span {
+  display: block;
+
+  width: 55%;
+  height: 100%;
+
+  margin-left: 30%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #bce7ff,
+      #fff0a1
+    );
+}
+
+/* =========================================================
+   README
+========================================================= */
+
+.readmeShell {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #101012;
+
+  color: white;
+}
+
+.readmeTitlebar {
+  position: relative;
+
+  height: 56px;
+
+  flex: 0 0 56px;
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    0
+    17px;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  background: #19191c;
+
+  cursor: grab;
+}
+
+.readmeTitlebar:active {
+  cursor: grabbing;
+}
+
+.readmeTitle {
+  position: absolute;
+
+  left: 50%;
+
+  color: #d9d9dc;
+
+  font-size: 14px;
+  font-weight: 550;
+
+  transform:
+    translateX(
+      -50%
+    );
+}
+
+.readmeBody {
+  min-height: 0;
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 30px;
+}
+
+.readmePaper {
+  position: relative;
+
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  padding:
+    45px
+    50px
+    50px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  border-radius: 13px;
+
+  background: #19191c;
+
+  box-shadow:
+    0
+    14px
+    40px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+
+  color: #d7d7db;
+
+  font-size: 17px;
+
+  line-height: 1.65;
+}
+
+.readmeDocumentIcon {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  color:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  opacity: 0.75;
+}
+
+.readmePaper p {
+  margin:
+    0
+    0
+    22px;
+}
+
+.readmePaper ul {
+  margin:
+    5px
+    0
+    24px;
+
+  padding-left: 28px;
+}
+
+.readmePaper li {
+  margin-bottom: 12px;
+}
+
+.readmePaper li::marker {
+  color:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+}
+
+.readmePaper li span {
+  color: white;
+
+  font-weight: 600;
+}
+
+.readmePaper code {
+  padding:
+    2px
+    6px;
+
+  border-radius: 5px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  color:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+  font-size: 0.9em;
+}
+
+.readmeSignature {
+  margin-bottom: 0 !important;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockPanel {
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.13
+    );
+
+  background:
+    rgba(
+      245,
+      245,
+      247,
+      0.88
+    );
+
+  color: #1d1d1f;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockSeparator {
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockRow {
+  color: #1d1d1f;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockRow span {
+  color: #737378;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockRow:hover {
+  color: white;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.clockRow:hover span {
+  color: white;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.readmeShell {
+  background: #efeff1;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.readmeTitlebar {
+  border-bottom-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.1
+    );
+
+  background: #f5f5f7;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.readmeTitle {
+  color: #1d1d1f;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.readmePaper {
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  background: white;
+
+  color: #343438;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.readmePaper li span {
+  color: #1d1d1f;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 850px
+) {
+  .weatherShell {
+    grid-template-columns:
+      260px
+      minmax(
+        0,
+        1fr
+      );
+  }
+
+  .weatherContent {
+    padding:
+      48px
+      20px
+      35px;
+  }
+
+  .readmePaper {
+    padding:
+      42px
+      32px;
+  }
+}

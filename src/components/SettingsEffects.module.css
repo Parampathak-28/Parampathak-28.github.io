@@ -1,0 +1,506 @@
+.bridge {
+  display: none;
+}
+
+/* =========================================================
+   PARAMOS VARIABLES
+========================================================= */
+
+:global(html) {
+  --paramos-accent: #0a84ff;
+  --paramos-dock-scale: 1;
+}
+
+/* =========================================================
+   DOCK SIZE
+========================================================= */
+
+:global(.dock) {
+  transform:
+    scale(
+      var(
+        --paramos-dock-scale,
+        1
+      )
+    );
+
+  transform-origin:
+    bottom center;
+
+  transition:
+    transform
+    180ms ease;
+}
+
+/* =========================================================
+   DISABLE DOCK MAGNIFICATION
+========================================================= */
+
+:global(
+  html[data-dock-magnification="off"]
+)
+:global(.dock-item:hover) {
+  transform:
+    none !important;
+}
+
+:global(
+  html[data-dock-magnification="off"]
+)
+:global(.dock-item:hover)
+:global(.dock-icon-wrap) {
+  transform:
+    none !important;
+}
+
+/* =========================================================
+   OPEN APP INDICATORS
+========================================================= */
+
+:global(
+  html[data-running-indicators="off"]
+)
+:global(.open-dot) {
+  display:
+    none !important;
+}
+
+/* =========================================================
+   DOCK TOOLTIPS
+========================================================= */
+
+:global(
+  html[data-dock-tooltips="off"]
+)
+:global(.dock-tooltip) {
+  display:
+    none !important;
+}
+
+/* =========================================================
+   ACCENT COLOR — FINDER
+========================================================= */
+
+:global(.finder-sidebar-item-active) {
+  background:
+    var(
+      --paramos-accent
+    ) !important;
+
+  color:
+    white !important;
+}
+
+:global(.finder-toolbar-active) {
+  color:
+    var(
+      --paramos-accent
+    ) !important;
+}
+
+/* =========================================================
+   ACCENT COLOR — NOTES
+========================================================= */
+
+:global(.notes-folder-row-active) {
+  color:
+    var(
+      --paramos-accent
+    ) !important;
+}
+
+:global(.notes-list-item-active) {
+  border-color:
+    var(
+      --paramos-accent
+    ) !important;
+}
+
+/* =========================================================
+   ACCENT COLOR — LINKS / ACTIVE ELEMENTS
+========================================================= */
+
+:global(.publication-link-icon) {
+  color:
+    var(
+      --paramos-accent
+    ) !important;
+}
+
+:global(a:focus-visible),
+:global(button:focus-visible) {
+  outline-color:
+    var(
+      --paramos-accent
+    );
+}
+
+/* =========================================================
+   LIGHT MODE — MENU BAR
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.menu-bar) {
+  background:
+    rgba(
+      245,
+      245,
+      247,
+      0.82
+    ) !important;
+
+  color:
+    #161617 !important;
+
+  border-bottom-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    ) !important;
+}
+
+/* =========================================================
+   LIGHT MODE — DOCK
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.dock) {
+  background:
+    rgba(
+      240,
+      240,
+      244,
+      0.7
+    ) !important;
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    ) !important;
+
+  box-shadow:
+    0
+    14px
+    36px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    ) !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.dock-tooltip) {
+  background:
+    rgba(
+      248,
+      248,
+      250,
+      0.96
+    ) !important;
+
+  color:
+    #202024 !important;
+}
+
+/* =========================================================
+   LIGHT MODE — WINDOW CHROME
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.mac-window-toolbar) {
+  background:
+    rgba(
+      246,
+      246,
+      248,
+      0.96
+    ) !important;
+
+  color:
+    #202024 !important;
+
+  border-bottom-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.1
+    ) !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.mac-window) {
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.17
+    ) !important;
+
+  box-shadow:
+    0
+    22px
+    60px
+    rgba(
+      0,
+      0,
+      0,
+      0.3
+    ) !important;
+}
+
+/* =========================================================
+   LIGHT MODE — FINDER
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.finder-shell) {
+  background:
+    #f5f5f7 !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.finder-app-toolbar) {
+  background:
+    rgba(
+      247,
+      247,
+      249,
+      0.96
+    ) !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.finder-sidebar) {
+  background:
+    rgba(
+      232,
+      232,
+      235,
+      0.95
+    ) !important;
+
+  color:
+    #252529 !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.finder-content) {
+  background:
+    #ffffff !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.finder-statusbar) {
+  background:
+    #f6f6f8 !important;
+
+  color:
+    #77777d !important;
+}
+
+/* =========================================================
+   LIGHT MODE — NOTES
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.notes-app) {
+  background:
+    #ffffff !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.notes-toolbar) {
+  background:
+    #f5f5f7 !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.notes-folder-sidebar) {
+  background:
+    #ededf0 !important;
+
+  color:
+    #29292d !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.notes-list-panel) {
+  background:
+    #f8f8fa !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+:global(.notes-editor) {
+  background:
+    #ffffff !important;
+
+  color:
+    #1d1d1f !important;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+:global(
+  html[data-paramos-theme="dark"]
+) {
+  color-scheme:
+    dark;
+}
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+:global(
+  html[data-reduce-motion="on"]
+)
+* {
+  animation-duration:
+    0.001ms !important;
+
+  animation-iteration-count:
+    1 !important;
+
+  transition-duration:
+    0.001ms !important;
+
+  scroll-behavior:
+    auto !important;
+}
+
+/* =========================================================
+   WINDOW ANIMATIONS
+========================================================= */
+
+:global(
+  html[data-window-animations="off"]
+)
+:global(.mac-window) {
+  animation:
+    none !important;
+
+  transition:
+    none !important;
+}
+
+/* =========================================================
+   INCREASE CONTRAST
+========================================================= */
+
+:global(
+  html[data-increase-contrast="on"]
+)
+:global(.mac-window) {
+  border:
+    2px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    ) !important;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+  [data-increase-contrast="on"]
+)
+:global(.mac-window) {
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.65
+    ) !important;
+}
+
+/* =========================================================
+   REDUCE TRANSPARENCY
+========================================================= */
+
+:global(
+  html[data-reduce-transparency="on"]
+)
+:global(.menu-bar),
+:global(
+  html[data-reduce-transparency="on"]
+)
+:global(.dock) {
+  backdrop-filter:
+    none !important;
+
+  -webkit-backdrop-filter:
+    none !important;
+}
+
+/* =========================================================
+   LARGER INTERFACE TEXT
+========================================================= */
+
+:global(
+  html[data-larger-text="on"]
+)
+body {
+  font-size:
+    1.08em;
+}

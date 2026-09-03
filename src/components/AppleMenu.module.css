@@ -1,0 +1,950 @@
+/* =========================================================
+   EXISTING APPLE LOGO
+========================================================= */
+
+:global(.apple-logo) {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =========================================================
+   APPLE MENU
+========================================================= */
+
+.appleMenu {
+  position: fixed;
+
+  width: 285px;
+
+  padding: 8px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+
+  border-radius: 17px;
+
+  background:
+    rgba(
+      35,
+      35,
+      40,
+      0.82
+    );
+
+  -webkit-backdrop-filter:
+    blur(32px)
+    saturate(150%);
+
+  backdrop-filter:
+    blur(32px)
+    saturate(150%);
+
+  box-shadow:
+    0
+    20px
+    55px
+    rgba(
+      0,
+      0,
+      0,
+      0.38
+    );
+
+  z-index: 9999999;
+
+  overflow: hidden;
+}
+
+.appleMenu button {
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    0
+    14px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #f5f5f7;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 420;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.appleMenu button:hover {
+  background:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  color: white;
+}
+
+.separator {
+  height: 1px;
+
+  margin:
+    5px
+    3px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+}
+
+/* =========================================================
+   DIALOG BACKDROP
+========================================================= */
+
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.52
+    );
+
+  -webkit-backdrop-filter:
+    blur(7px);
+
+  backdrop-filter:
+    blur(7px);
+
+  z-index: 10000000;
+}
+
+/* =========================================================
+   RESTART / SHUTDOWN DIALOG
+========================================================= */
+
+.dialog {
+  width: min(
+    430px,
+    calc(
+      100vw - 40px
+    )
+  );
+
+  padding:
+    27px
+    28px
+    28px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      39,
+      39,
+      43,
+      0.96
+    );
+
+  box-shadow:
+    0
+    30px
+    90px
+    rgba(
+      0,
+      0,
+      0,
+      0.55
+    );
+
+  color: white;
+
+  text-align: center;
+}
+
+.dialogApple {
+  margin-bottom: 15px;
+
+  color: #f5f5f7;
+
+  font-size: 61px;
+  line-height: 1;
+}
+
+.dialog h2 {
+  max-width: 370px;
+
+  margin:
+    0
+    auto;
+
+  color: #f5f5f7;
+
+  font-size: 17px;
+  font-weight: 650;
+
+  line-height: 1.35;
+}
+
+.dialog p {
+  max-width: 340px;
+
+  margin:
+    14px
+    auto
+    24px;
+
+  color: #9c9ca1;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+}
+
+.primaryButton,
+.secondaryButton {
+  width: 100%;
+  height: 42px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.primaryButton {
+  margin-bottom: 7px;
+
+  border: 0;
+
+  background:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  color: white;
+}
+
+.primaryButton:hover {
+  filter:
+    brightness(
+      1.08
+    );
+}
+
+.secondaryButton {
+  border:
+    2px solid
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  background:
+    transparent;
+
+  color: #f5f5f7;
+}
+
+.secondaryButton:hover {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+}
+
+/* =========================================================
+   SLEEP
+========================================================= */
+
+.sleepScreen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #000;
+
+  z-index: 10000002;
+
+  cursor: none;
+}
+
+.sleepMessage {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.92
+    );
+
+  font-size:
+    clamp(
+      17px,
+      2vw,
+      25px
+    );
+
+  font-weight: 450;
+
+  letter-spacing:
+    0.1px;
+
+  animation:
+    sleepFade
+    2.1s
+    ease-in-out
+    infinite;
+}
+
+@keyframes sleepFade {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   RESTART / BOOT SCREEN
+========================================================= */
+
+.restartScreen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 43px;
+
+  background: #000;
+
+  z-index: 10000003;
+}
+
+.bootApple {
+  color: white;
+
+  font-size:
+    clamp(
+      68px,
+      8vw,
+      100px
+    );
+
+  line-height: 1;
+
+  transform:
+    translateY(
+      -15px
+    );
+}
+
+.progressTrack {
+  width:
+    min(
+      205px,
+      28vw
+    );
+
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.28
+    );
+}
+
+.progressFill {
+  width: 0%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: white;
+
+  animation:
+    bootProgress
+    2s
+    ease-in-out
+    forwards;
+}
+
+@keyframes bootProgress {
+  0% {
+    width: 2%;
+  }
+
+  18% {
+    width: 19%;
+  }
+
+  43% {
+    width: 48%;
+  }
+
+  68% {
+    width: 70%;
+  }
+
+  88% {
+    width: 90%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   LOCK SCREEN
+========================================================= */
+
+.lockScreen {
+  position: fixed;
+  inset: 0;
+
+  overflow: hidden;
+
+  background:
+    #111;
+
+  color: white;
+
+  z-index: 10000001;
+}
+
+.lockBackdrop {
+  position: absolute;
+  inset: -30px;
+
+  background:
+    linear-gradient(
+      rgba(
+        8,
+        12,
+        18,
+        0.18
+      ),
+      rgba(
+        8,
+        12,
+        18,
+        0.42
+      )
+    ),
+    url("/wallpaper.png")
+      center
+      center /
+      cover
+      no-repeat;
+
+  filter:
+    blur(18px)
+    brightness(0.7);
+
+  transform:
+    scale(
+      1.06
+    );
+}
+
+.lockContent {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding-top:
+    clamp(
+      68px,
+      10vh,
+      115px
+    );
+
+  z-index: 1;
+}
+
+.lockDate {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
+
+  font-size:
+    clamp(
+      15px,
+      1.4vw,
+      20px
+    );
+
+  font-weight: 500;
+
+  letter-spacing:
+    0.2px;
+}
+
+.lockTime {
+  margin-top: 4px;
+
+  color: white;
+
+  font-size:
+    clamp(
+      74px,
+      9vw,
+      132px
+    );
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing:
+    -4px;
+
+  text-shadow:
+    0
+    2px
+    18px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+.lockUserArea {
+  position: absolute;
+
+  left: 50%;
+  bottom:
+    clamp(
+      92px,
+      12vh,
+      145px
+    );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transform:
+    translateX(
+      -50%
+    );
+}
+
+.lockAvatar {
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.34
+    );
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #9c9ca2,
+      #585860
+    );
+
+  box-shadow:
+    0
+    8px
+    28px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+
+  color: white;
+
+  font-size: 24px;
+  font-weight: 650;
+}
+
+.lockName {
+  margin-top: 13px;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.unlockBox {
+  width: 260px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 16px;
+
+  padding-left: 22px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.45
+    );
+
+  border-radius: 999px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  backdrop-filter:
+    blur(18px);
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-size: 12px;
+}
+
+.unlockBox button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 3px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  color: white;
+
+  font-size: 19px;
+
+  cursor: pointer;
+}
+
+.unlockBox button:hover {
+  background:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+}
+
+.unlockHint {
+  margin-top: 11px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   SHUTDOWN
+========================================================= */
+
+.shutdownScreen {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #000;
+
+  color: white;
+
+  z-index: 10000004;
+}
+
+.powerButton {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.3
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    background
+    150ms ease,
+    transform
+    150ms ease;
+}
+
+.powerButton:hover {
+  background:
+    var(
+      --paramos-accent,
+      #0a84ff
+    );
+
+  transform:
+    scale(
+      1.06
+    );
+}
+
+.shutdownScreen p {
+  margin:
+    19px
+    0
+    4px;
+
+  font-size: 17px;
+  font-weight: 550;
+}
+
+.shutdownScreen span {
+  color: #8e8e93;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   LIGHT MODE MENU / DIALOG
+========================================================= */
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.appleMenu {
+  border-color:
+    rgba(
+      0,
+      0,
+      0,
+      0.14
+    );
+
+  background:
+    rgba(
+      245,
+      245,
+      247,
+      0.87
+    );
+
+  box-shadow:
+    0
+    20px
+    55px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.appleMenu button {
+  color: #1d1d1f;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.appleMenu button:hover {
+  color: white;
+}
+
+:global(
+  html[data-paramos-theme="light"]
+)
+.separator {
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+}
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+:global(
+  html[data-reduce-motion="on"]
+)
+.sleepMessage,
+:global(
+  html[data-reduce-motion="on"]
+)
+.progressFill {
+  animation: none;
+}
+
+:global(
+  html[data-reduce-motion="on"]
+)
+.progressFill {
+  width: 100%;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+  max-width: 600px
+) {
+  .appleMenu {
+    width: 245px;
+  }
+
+  .appleMenu button {
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .lockTime {
+    letter-spacing:
+      -2px;
+  }
+
+  .unlockBox {
+    width: 235px;
+  }
+}
